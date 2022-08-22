@@ -9,8 +9,8 @@ export default function SignIn() {
           Login
         </Text>
         <Stack spacing={4}>
-          <Input name="email" label="E-mail" type="email" />
-          <Input name="password" label="Password" type="password" />
+          <Input name="email" label="E-mail" type="email" placeholder="E-mail" />
+          <Input name="password" label="Password" type="password" placeholder="Senha" />
         </Stack>
         <Button type="submit" mt={4} colorScheme="pink" size="lg">
           Entrar

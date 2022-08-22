@@ -14,7 +14,6 @@ export const Input = ({ name, label, ...rest }: InputProps) => {
       <ChakraInput
         name={name}
         id={name}
-        placeholder="E-mail"
         focusBorderColor="pink.500"
         bgColor="gray.900"
         variant="filled"
