@@ -48,7 +48,14 @@ const options = {
   },
 };
 
-const series = [
+const series1 = [
+  {
+    name: "series-2",
+    data: [89, 43, 35, 54, 41, 59, 80],
+  },
+];
+
+const series2 = [
   {
     name: "series-1",
     data: [31, 40, 28, 51, 42, 109, 100],
@@ -68,14 +75,14 @@ export default function Dashboard() {
             <Text fontSize="lg" mb={4}>
               Inscritos da Semana
             </Text>
-            <Chart type="area" height={160} options={options} series={series} />
+            <Chart type="area" height={160} options={options} series={series1} />
           </Box>
 
           <Box p={8} bg="gray.800" borderRadius={8} pb={4}>
             <Text fontSize="lg" mb={4}>
               Taxa de Abertura
             </Text>
-            <Chart type="area" height={160} options={options} series={series} />
+            <Chart type="area" height={160} options={options} series={series2} />
           </Box>
         </SimpleGrid>
       </Flex>
