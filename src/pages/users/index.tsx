@@ -23,13 +23,13 @@ import { RiAddLine, RiDeleteBin5Line, RiPencilLine, RiRefreshLine } from "react-
 import { Header } from "../../components/Header";
 import { Pagination } from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
+import { api } from "../../services/api";
 
 export default function UserList() {
   const { data, isLoading, isFetching, isError, refetch } = useQuery(
     ["users"],
     async () => {
-      const response = await fetch("http://localhost:3000/api/users");
-      const data = await response.json();
+      const { data } = await api.get("users");
 
       const users = data.users.map((user) => {
         return {
@@ -128,52 +128,54 @@ export default function UserList() {
                     </Tr>
                   </Thead>
                   <Tbody>
-                    {data.map((user) => {
-                      return (
-                        <Tr key={user.id}>
-                          <Td px={[4, 4, 6]}>
-                            <Checkbox colorScheme="pink" />
-                          </Td>
+                    {data
+                      .sort((a, b) => a.name.localeCompare(b.name))
+                      .map((user) => {
+                        return (
+                          <Tr key={user.id}>
+                            <Td px={[4, 4, 6]}>
+                              <Checkbox colorScheme="pink" />
+                            </Td>
 
-                          <Td>
-                            <Box>
-                              <Text fontWeight="bold">{user.name}</Text>
-                              <Text fontSize="sm" color="gray.300">
-                                {user.email}
-                              </Text>
-                            </Box>
-                          </Td>
+                            <Td>
+                              <Box>
+                                <Text fontWeight="bold">{user.name}</Text>
+                                <Text fontSize="sm" color="gray.300">
+                                  {user.email}
+                                </Text>
+                              </Box>
+                            </Td>
 
-                          {isWideVersion && <Td>{user.createdAt}</Td>}
+                            {isWideVersion && <Td>{user.createdAt}</Td>}
 
-                          <Td>
-                            <Button
-                              as="a"
-                              colorScheme="blue"
-                              size="sm"
-                              fontSize="sm"
-                              cursor="pointer"
-                              leftIcon={<Icon as={RiPencilLine} fontSize={20} />}
-                            >
-                              {isWideVersion ? "Editar" : ""}
-                            </Button>
-                          </Td>
+                            <Td>
+                              <Button
+                                as="a"
+                                colorScheme="blue"
+                                size="sm"
+                                fontSize="sm"
+                                cursor="pointer"
+                                leftIcon={<Icon as={RiPencilLine} fontSize={20} />}
+                              >
+                                {isWideVersion ? "Editar" : ""}
+                              </Button>
+                            </Td>
 
-                          <Td>
-                            <Button
-                              as="a"
-                              colorScheme="red"
-                              size="sm"
-                              fontSize="sm"
-                              cursor="pointer"
-                              leftIcon={<Icon as={RiDeleteBin5Line} fontSize={20} />}
-                            >
-                              {isWideVersion ? "Deletar" : ""}
-                            </Button>
-                          </Td>
-                        </Tr>
-                      );
-                    })}
+                            <Td>
+                              <Button
+                                as="a"
+                                colorScheme="red"
+                                size="sm"
+                                fontSize="sm"
+                                cursor="pointer"
+                                leftIcon={<Icon as={RiDeleteBin5Line} fontSize={20} />}
+                              >
+                                {isWideVersion ? "Deletar" : ""}
+                              </Button>
+                            </Td>
+                          </Tr>
+                        );
+                      })}
                   </Tbody>
                 </Table>
 
