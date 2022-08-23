@@ -27,6 +27,7 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "miragejs": "^0.1.45",
     "@types/node": "^18.7.9",
     "@types/react": "^18.0.17",
     "eslint": "8.22.0",
