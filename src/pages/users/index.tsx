@@ -18,14 +18,14 @@ import {
 import { useQuery } from "@tanstack/react-query";
 import Head from "next/head";
 import Link from "next/link";
-import { RiAddLine, RiDeleteBin5Line, RiPencilLine } from "react-icons/ri";
+import { RiAddLine, RiDeleteBin5Line, RiPencilLine, RiRefreshLine } from "react-icons/ri";
 
 import { Header } from "../../components/Header";
 import { Pagination } from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
 
 export default function UserList() {
-  const { data, isLoading, isError } = useQuery(
+  const { data, isLoading, isFetching, isError, refetch } = useQuery(
     ["users"],
     async () => {
       const response = await fetch("http://localhost:3000/api/users");
@@ -71,20 +71,36 @@ export default function UserList() {
             <Flex mb={8} justify="space-between" align="center">
               <Heading as="h2" size="lg" fontWeight="normal">
                 Usuários
+                {!isLoading && isFetching && <Spinner size="sm" color="gray.500" ml={4} />}
               </Heading>
 
-              <Link href="/users/create" passHref>
+              <Box>
                 <Button
                   as="a"
-                  colorScheme="pink"
+                  colorScheme="blue"
                   size="sm"
                   fontSize="sm"
+                  mr={4}
                   cursor="pointer"
-                  leftIcon={<Icon as={RiAddLine} fontSize={20} />}
+                  leftIcon={<Icon as={RiRefreshLine} fontSize={20} />}
+                  onClick={() => refetch()}
                 >
-                  Criar novo usuário
+                  Atualizar dados
                 </Button>
-              </Link>
+
+                <Link href="/users/create" passHref>
+                  <Button
+                    as="a"
+                    colorScheme="pink"
+                    size="sm"
+                    fontSize="sm"
+                    cursor="pointer"
+                    leftIcon={<Icon as={RiAddLine} fontSize={20} />}
+                  >
+                    Criar novo usuário
+                  </Button>
+                </Link>
+              </Box>
             </Flex>
 
             {isLoading ? (
