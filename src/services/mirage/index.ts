@@ -1,5 +1,5 @@
-import { faker } from "@faker-js/faker"
-import { createServer, Factory, Model } from "miragejs"
+import { faker } from "@faker-js/faker";
+import { createServer, Factory, Model } from "miragejs";
 
 type User = {
   name: string;
@@ -28,14 +28,14 @@ export function makeServer() {
     },
 
     seeds(server) {
-      server.createList("user", 200);
+      server.createList("user", 10);
     },
 
     routes() {
       this.namespace = "api";
 
       // timing aplica o delay de 750ms para o retorno dos dados
-      this.timing = 750;
+      this.timing = 1000;
 
       this.get("/users");
       this.post("/users");
