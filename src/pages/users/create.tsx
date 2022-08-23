@@ -1,16 +1,14 @@
-import { Box, Button, Divider, Flex, Heading, HStack, Icon, SimpleGrid, Text, VStack } from "@chakra-ui/react";
-import Head from "next/head";
-import Link from "next/link";
-import { RiDeleteBack2Line, RiSaveLine } from "react-icons/ri";
+import { Box, Button, Divider, Flex, Heading, HStack, Icon, SimpleGrid, VStack } from "@chakra-ui/react"
+import { yupResolver } from "@hookform/resolvers/yup"
+import Head from "next/head"
+import Link from "next/link"
+import { SubmitHandler, useForm } from "react-hook-form"
+import { RiDeleteBack2Line, RiSaveLine } from "react-icons/ri"
+import * as yup from "yup"
 
-import { Input } from "../../components/Form/Input";
-import { Header } from "../../components/Header";
-import { Sidebar } from "../../components/Sidebar";
-
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-
-import { SubmitHandler, useForm } from "react-hook-form";
+import { Input } from "../../components/Form/Input"
+import { Header } from "../../components/Header"
+import { Sidebar } from "../../components/Sidebar"
 
 interface CreateUserFormData {
   name: string;

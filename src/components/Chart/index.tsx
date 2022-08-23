@@ -1,6 +1,6 @@
-import { theme } from "@chakra-ui/react";
-import dynamic from "next/dynamic";
-import { ApexOptions } from "apexcharts";
+import { theme } from "@chakra-ui/react"
+import { ApexOptions } from "apexcharts"
+import dynamic from "next/dynamic"
 
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 

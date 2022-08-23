@@ -1,5 +1,5 @@
 // arquivo theme pra definir as cores, temas que serão usados no projeto
-import { extendTheme } from "@chakra-ui/react";
+import { extendTheme } from "@chakra-ui/react"
 
 // alterações no tema padrão do chakra
 export const theme = extendTheme({

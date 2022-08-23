@@ -1,9 +1,10 @@
-import { Button, Flex, Stack, Text } from "@chakra-ui/react";
-import { Input } from "../components/Form/Input";
-import { SubmitHandler, useForm } from "react-hook-form";
-import Head from "next/head";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import { Button, Flex, Stack, Text } from "@chakra-ui/react"
+import { yupResolver } from "@hookform/resolvers/yup"
+import Head from "next/head"
+import { SubmitHandler, useForm } from "react-hook-form"
+import * as yup from "yup"
+
+import { Input } from "../components/Form/Input"
 
 interface signInFormData {
   email: string;

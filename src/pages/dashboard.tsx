@@ -1,9 +1,9 @@
-import { Box, Flex, SimpleGrid, Text } from "@chakra-ui/react";
+import { Box, Flex, SimpleGrid, Text } from "@chakra-ui/react"
+import Head from "next/head"
 
-import { Sidebar } from "../components/Sidebar";
-import { Header } from "../components/Header";
-import { ChartComponent } from "../components/Chart";
-import Head from "next/head";
+import { ChartComponent } from "../components/Chart"
+import { Header } from "../components/Header"
+import { Sidebar } from "../components/Sidebar"
 
 export default function Dashboard() {
   return (
