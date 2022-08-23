@@ -16,13 +16,7 @@ const schema = yup.object().shape({
 });
 
 export default function SignIn() {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState,
-    formState: { errors },
-  } = useForm({
+  const { register, handleSubmit, reset, formState } = useForm({
     resolver: yupResolver(schema),
   });
 
@@ -52,13 +46,12 @@ export default function SignIn() {
           <Text fontSize="3xl" fontWeight="bold" textAlign="center" mb={8}>
             Login
           </Text>
+
           <Stack spacing={4}>
             <Input name="email" label="E-mail" type="email" placeholder="E-mail" {...register("email")} />
-            {errors.email && <Text color="red.500">{errors.email.message}</Text>}
-
             <Input name="password" label="Password" type="password" placeholder="Senha" {...register("password")} />
-            {errors.password && <Text color="red.500">{errors.password.message}</Text>}
           </Stack>
+
           <Button type="submit" mt={4} colorScheme="pink" size="lg" isLoading={formState.isSubmitting}>
             Entrar
           </Button>
