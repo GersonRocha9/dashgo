@@ -11,7 +11,7 @@ export default function SignIn() {
   const { register, handleSubmit, reset, formState } = useForm();
 
   const handleSignIn: SubmitHandler<signInFormData> = async (data) => {
-    await new Promise((resolve) => setTimeout(resolve, 4000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     console.log(data);
     reset();
   };
