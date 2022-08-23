@@ -14,6 +14,7 @@ import {
   Tr,
   useBreakpointValue,
 } from "@chakra-ui/react";
+import Head from "next/head";
 import Link from "next/link";
 import { RiAddLine, RiDeleteBin5Line, RiPencilLine } from "react-icons/ri";
 
@@ -29,137 +30,143 @@ export default function UserList() {
   });
 
   return (
-    <Box>
-      <Header />
-      <Flex w="100%" my={6} maxW={1480} mx="auto" px={[4, 4, 6]}>
-        <Sidebar />
+    <>
+      <Head>
+        <title>Usuários | dashgo.</title>
+      </Head>
 
-        <Box flex={1} borderRadius={8} bg="gray.800" p={8}>
-          <Flex mb={8} justify="space-between" align="center">
-            <Heading as="h2" size="lg" fontWeight="normal">
-              Usuários
-            </Heading>
+      <Box>
+        <Header />
+        <Flex w="100%" my={6} maxW={1480} mx="auto" px={[4, 4, 6]}>
+          <Sidebar />
 
-            <Link href="/users/create" passHref>
-              <Button
-                as="a"
-                colorScheme="pink"
-                size="sm"
-                fontSize="sm"
-                cursor="pointer"
-                leftIcon={<Icon as={RiAddLine} fontSize={20} />}
-              >
-                Criar novo usuário
-              </Button>
-            </Link>
-          </Flex>
+          <Box flex={1} borderRadius={8} bg="gray.800" p={8}>
+            <Flex mb={8} justify="space-between" align="center">
+              <Heading as="h2" size="lg" fontWeight="normal">
+                Usuários
+              </Heading>
 
-          <Table colorScheme="whiteAlpha">
-            <Thead>
-              <Tr>
-                <Th px={[4, 4, 6]} color="gray.300" w={8}>
-                  <Checkbox colorScheme="pink" />
-                </Th>
+              <Link href="/users/create" passHref>
+                <Button
+                  as="a"
+                  colorScheme="pink"
+                  size="sm"
+                  fontSize="sm"
+                  cursor="pointer"
+                  leftIcon={<Icon as={RiAddLine} fontSize={20} />}
+                >
+                  Criar novo usuário
+                </Button>
+              </Link>
+            </Flex>
 
-                <Th>Usuário</Th>
+            <Table colorScheme="whiteAlpha">
+              <Thead>
+                <Tr>
+                  <Th px={[4, 4, 6]} color="gray.300" w={8}>
+                    <Checkbox colorScheme="pink" />
+                  </Th>
 
-                {isWideVersion && <Th>Data de cadastro</Th>}
-                <Th w={8}>{/* Th referente ao editar */}</Th>
-                <Th w={8}>{/* Th referente ao deletar */}</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              <Tr>
-                <Td px={[4, 4, 6]}>
-                  <Checkbox colorScheme="pink" />
-                </Td>
+                  <Th>Usuário</Th>
 
-                <Td>
-                  <Box>
-                    <Text fontWeight="bold">Cristina Rocha</Text>
-                    <Text fontSize="sm" color="gray.300">
-                      crisrocha@gmail.com
-                    </Text>
-                  </Box>
-                </Td>
+                  {isWideVersion && <Th>Data de cadastro</Th>}
+                  <Th w={8}>{/* Th referente ao editar */}</Th>
+                  <Th w={8}>{/* Th referente ao deletar */}</Th>
+                </Tr>
+              </Thead>
+              <Tbody>
+                <Tr>
+                  <Td px={[4, 4, 6]}>
+                    <Checkbox colorScheme="pink" />
+                  </Td>
 
-                {isWideVersion && <Td>25 de Agosto de 2022</Td>}
+                  <Td>
+                    <Box>
+                      <Text fontWeight="bold">Cristina Rocha</Text>
+                      <Text fontSize="sm" color="gray.300">
+                        crisrocha@gmail.com
+                      </Text>
+                    </Box>
+                  </Td>
 
-                <Td>
-                  <Button
-                    as="a"
-                    colorScheme="blue"
-                    size="sm"
-                    fontSize="sm"
-                    cursor="pointer"
-                    leftIcon={<Icon as={RiPencilLine} fontSize={20} />}
-                  >
-                    {isWideVersion ? "Editar" : ""}
-                  </Button>
-                </Td>
+                  {isWideVersion && <Td>25 de Agosto de 2022</Td>}
 
-                <Td>
-                  <Button
-                    as="a"
-                    colorScheme="red"
-                    size="sm"
-                    fontSize="sm"
-                    cursor="pointer"
-                    leftIcon={<Icon as={RiDeleteBin5Line} fontSize={20} />}
-                  >
-                    {isWideVersion ? "Deletar" : ""}
-                  </Button>
-                </Td>
-              </Tr>
+                  <Td>
+                    <Button
+                      as="a"
+                      colorScheme="blue"
+                      size="sm"
+                      fontSize="sm"
+                      cursor="pointer"
+                      leftIcon={<Icon as={RiPencilLine} fontSize={20} />}
+                    >
+                      {isWideVersion ? "Editar" : ""}
+                    </Button>
+                  </Td>
 
-              <Tr>
-                <Td px={[4, 4, 6]}>
-                  <Checkbox colorScheme="pink" />
-                </Td>
+                  <Td>
+                    <Button
+                      as="a"
+                      colorScheme="red"
+                      size="sm"
+                      fontSize="sm"
+                      cursor="pointer"
+                      leftIcon={<Icon as={RiDeleteBin5Line} fontSize={20} />}
+                    >
+                      {isWideVersion ? "Deletar" : ""}
+                    </Button>
+                  </Td>
+                </Tr>
 
-                <Td>
-                  <Box>
-                    <Text fontWeight="bold">Gerson Rocha</Text>
-                    <Text fontSize="sm" color="gray.300">
-                      gersonrocha9@gmail.com
-                    </Text>
-                  </Box>
-                </Td>
+                <Tr>
+                  <Td px={[4, 4, 6]}>
+                    <Checkbox colorScheme="pink" />
+                  </Td>
 
-                {isWideVersion && <Td>22 de Agosto de 2022</Td>}
+                  <Td>
+                    <Box>
+                      <Text fontWeight="bold">Gerson Rocha</Text>
+                      <Text fontSize="sm" color="gray.300">
+                        gersonrocha9@gmail.com
+                      </Text>
+                    </Box>
+                  </Td>
 
-                <Td>
-                  <Button
-                    as="a"
-                    colorScheme="blue"
-                    size="sm"
-                    fontSize="sm"
-                    cursor="pointer"
-                    leftIcon={<Icon as={RiPencilLine} fontSize={20} />}
-                  >
-                    {isWideVersion ? "Editar" : ""}
-                  </Button>
-                </Td>
+                  {isWideVersion && <Td>22 de Agosto de 2022</Td>}
 
-                <Td>
-                  <Button
-                    as="a"
-                    colorScheme="red"
-                    size="sm"
-                    fontSize="sm"
-                    cursor="pointer"
-                    leftIcon={<Icon as={RiDeleteBin5Line} fontSize={20} />}
-                  >
-                    {isWideVersion ? "Deletar" : ""}
-                  </Button>
-                </Td>
-              </Tr>
-            </Tbody>
-          </Table>
+                  <Td>
+                    <Button
+                      as="a"
+                      colorScheme="blue"
+                      size="sm"
+                      fontSize="sm"
+                      cursor="pointer"
+                      leftIcon={<Icon as={RiPencilLine} fontSize={20} />}
+                    >
+                      {isWideVersion ? "Editar" : ""}
+                    </Button>
+                  </Td>
 
-          <Pagination />
-        </Box>
-      </Flex>
-    </Box>
+                  <Td>
+                    <Button
+                      as="a"
+                      colorScheme="red"
+                      size="sm"
+                      fontSize="sm"
+                      cursor="pointer"
+                      leftIcon={<Icon as={RiDeleteBin5Line} fontSize={20} />}
+                    >
+                      {isWideVersion ? "Deletar" : ""}
+                    </Button>
+                  </Td>
+                </Tr>
+              </Tbody>
+            </Table>
+
+            <Pagination />
+          </Box>
+        </Flex>
+      </Box>
+    </>
   );
 }
