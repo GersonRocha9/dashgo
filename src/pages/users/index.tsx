@@ -17,6 +17,7 @@ import {
 } from "@chakra-ui/react";
 import Head from "next/head";
 import Link from "next/link";
+import { useState } from "react";
 import { RiAddLine, RiDeleteBin5Line, RiPencilLine, RiRefreshLine } from "react-icons/ri";
 
 import { Header } from "../../components/Header";
@@ -25,7 +26,8 @@ import { Sidebar } from "../../components/Sidebar";
 import { useUsers } from "../../hooks/useUsers";
 
 export default function UserList() {
-  const { data, isLoading, isFetching, isError, refetch } = useUsers();
+  const [page, setPage] = useState(1);
+  const { data, isLoading, isFetching, isError, refetch } = useUsers(page);
 
   const isWideVersion = useBreakpointValue({
     base: false,
@@ -104,7 +106,7 @@ export default function UserList() {
                     </Tr>
                   </Thead>
                   <Tbody>
-                    {data
+                    {data.users
                       .sort((a, b) => a.name.localeCompare(b.name))
                       .map((user) => {
                         return (
@@ -155,7 +157,7 @@ export default function UserList() {
                   </Tbody>
                 </Table>
 
-                <Pagination />
+                <Pagination totalCountOfRegisters={data.totalCount} currentPage={page} onPageChange={setPage} />
               </>
             )}
           </Box>
