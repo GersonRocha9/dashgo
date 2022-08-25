@@ -37,7 +37,7 @@ export default function UserList() {
     lg: true,
   });
 
-  async function handlePrefetchUser(userId: number) {
+  async function handlePrefetchUser(userId: string) {
     await queryClient.prefetchQuery(
       ["user", userId],
       async () => {
@@ -123,61 +123,59 @@ export default function UserList() {
                     </Tr>
                   </Thead>
                   <Tbody>
-                    {data.users
-                      .sort((a, b) => a.name.localeCompare(b.name))
-                      .map((user) => {
-                        return (
-                          <Tr key={user.id}>
-                            <Td px={[4, 4, 6]}>
-                              <Checkbox colorScheme="pink" />
-                            </Td>
+                    {data.users.map((user) => {
+                      return (
+                        <Tr key={user.id}>
+                          <Td px={[4, 4, 6]}>
+                            <Checkbox colorScheme="pink" />
+                          </Td>
 
-                            <Td>
-                              <Box>
-                                <Link
-                                  color="purple.400"
-                                  onMouseEnter={() => {
-                                    handlePrefetchUser(Number(user.id));
-                                  }}
-                                >
-                                  <Text fontWeight="bold">{user.name}</Text>
-                                </Link>
-                                <Text fontSize="sm" color="gray.300">
-                                  {user.email}
-                                </Text>
-                              </Box>
-                            </Td>
-
-                            {isWideVersion && <Td>{user.createdAt}</Td>}
-
-                            <Td>
-                              <Button
-                                as="a"
-                                colorScheme="blue"
-                                size="sm"
-                                fontSize="sm"
-                                cursor="pointer"
-                                leftIcon={<Icon as={RiPencilLine} fontSize={20} />}
+                          <Td>
+                            <Box>
+                              <Link
+                                color="purple.400"
+                                onMouseEnter={() => {
+                                  handlePrefetchUser(user.id);
+                                }}
                               >
-                                {isWideVersion ? "Editar" : ""}
-                              </Button>
-                            </Td>
+                                <Text fontWeight="bold">{user.name}</Text>
+                              </Link>
+                              <Text fontSize="sm" color="gray.300">
+                                {user.email}
+                              </Text>
+                            </Box>
+                          </Td>
 
-                            <Td>
-                              <Button
-                                as="a"
-                                colorScheme="red"
-                                size="sm"
-                                fontSize="sm"
-                                cursor="pointer"
-                                leftIcon={<Icon as={RiDeleteBin5Line} fontSize={20} />}
-                              >
-                                {isWideVersion ? "Deletar" : ""}
-                              </Button>
-                            </Td>
-                          </Tr>
-                        );
-                      })}
+                          {isWideVersion && <Td>{user.createdAt}</Td>}
+
+                          <Td>
+                            <Button
+                              as="a"
+                              colorScheme="blue"
+                              size="sm"
+                              fontSize="sm"
+                              cursor="pointer"
+                              leftIcon={<Icon as={RiPencilLine} fontSize={20} />}
+                            >
+                              {isWideVersion ? "Editar" : ""}
+                            </Button>
+                          </Td>
+
+                          <Td>
+                            <Button
+                              as="a"
+                              colorScheme="red"
+                              size="sm"
+                              fontSize="sm"
+                              cursor="pointer"
+                              leftIcon={<Icon as={RiDeleteBin5Line} fontSize={20} />}
+                            >
+                              {isWideVersion ? "Deletar" : ""}
+                            </Button>
+                          </Td>
+                        </Tr>
+                      );
+                    })}
                   </Tbody>
                 </Table>
 
