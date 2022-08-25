@@ -3,7 +3,11 @@ import { api } from "../services/api";
 type User = {
   id: string;
   name: string;
+  crm: string;
+  cpf: string;
+  phone: string;
   email: string;
+  login: string;
   createdAt: string;
 };
 
@@ -21,7 +25,11 @@ export async function getUsers(page: number): Promise<GetUsersResponse> {
     return {
       id: user.id,
       name: user.name,
+      crm: user.crm,
+      cpf: user.cpf,
+      phone: user.phone,
       email: user.email,
+      login: user.login,
       createdAt: new Date(user.createdAt).toLocaleDateString("pt-BR", {
         day: "2-digit",
         month: "long",

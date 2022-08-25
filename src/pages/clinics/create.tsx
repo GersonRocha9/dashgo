@@ -24,7 +24,6 @@ interface CreateUserFormData {
 const schema = yup.object().shape({
   name: yup.string().required(),
   crm: yup.string().required(),
-  specialty: yup.string().required(),
   cpf: yup.string().required(),
   phone: yup.string().required(),
   email: yup.string().email().required(),
@@ -83,7 +82,6 @@ export default function CreateUser() {
               <SimpleGrid minChildWidth="240px" spacing={[6, 8]} w="100%">
                 <Input name="name" label="Nome Completo" {...register("name")} />
                 <Input name="crm" label="CRM" {...register("crm")} />
-                <Input name="specialty" label="Especialidade Médica" {...register("specialty")} />
                 <Input name="cpf" label="CPF" {...register("cpf")} />
                 <Input name="phone" label="Telefone" {...register("phone")} />
                 <Input name="email" label="E-mail" {...register("email")} />

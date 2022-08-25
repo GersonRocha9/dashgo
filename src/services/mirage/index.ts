@@ -1,9 +1,14 @@
 import { faker } from "@faker-js/faker";
+import { generate } from "gerador-validador-cpf";
 import { ActiveModelSerializer, createServer, Factory, Model, Response } from "miragejs";
 
 type User = {
   name: string;
+  crm: string;
+  cpf: string;
+  phone: string;
   email: string;
+  login: string;
   created_at: string;
 };
 
@@ -21,8 +26,20 @@ export function makeServer() {
         name(i: number) {
           return faker.name.fullName();
         },
+        crm(i: number) {
+          return faker.phone.number("######/RJ");
+        },
+        cpf(i: number) {
+          return generate({ format: true });
+        },
+        phone(i: number) {
+          return faker.phone.number("0## 9####-####");
+        },
         email() {
           return faker.internet.email().toLowerCase();
+        },
+        login() {
+          return faker.random.alpha(10);
         },
         createdAt() {
           return faker.date.recent(30);
@@ -49,7 +66,7 @@ export function makeServer() {
         const pageEnd = pageStart + Number(per_page);
 
         const users = this.serialize(schema.all("user"))
-          .users.sort((a, b) => a.created_at - b.created_at)
+          .users.sort((a, b) => a.name.localeCompare(b.name))
           .slice(pageStart, pageEnd);
 
         return new Response(200, { "x-total-count": String(total) }, { users });

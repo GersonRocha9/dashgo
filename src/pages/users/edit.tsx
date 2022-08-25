@@ -24,7 +24,6 @@ interface CreateUserFormData {
 const schema = yup.object().shape({
   name: yup.string().required(),
   crm: yup.string().required(),
-  specialty: yup.string().required(),
   cpf: yup.string().required(),
   phone: yup.string().required(),
   email: yup.string().email().required(),
@@ -81,14 +80,13 @@ export default function CreateUser() {
 
             <VStack spacing={8}>
               <SimpleGrid minChildWidth="240px" spacing={[6, 8]} w="100%">
-                <Input name="name" label="Nome Completo" {...register("name")} />
-                <Input name="crm" label="CRM" {...register("crm")} />
-                <Input name="specialty" label="Especialidade Médica" {...register("specialty")} />
-                <Input name="cpf" label="CPF" {...register("cpf")} />
-                <Input name="phone" label="Telefone" {...register("phone")} />
-                <Input name="email" label="E-mail" {...register("email")} />
-                <Input name="login" label="Login" {...register("login")} />
-                <Input name="password" label="Senha" type="password" {...register("password")} />
+                <Input name="name" placeholder="Gerson Rocha" label="Nome Completo" {...register("name")} />
+                <Input name="crm" placeholder="123456/RJ" label="CRM" {...register("crm")} />
+                <Input name="cpf" placeholder="130.678.117-55" label="CPF" {...register("cpf")} />
+                <Input name="phone" placeholder="22999534259" label="Telefone" {...register("phone")} />
+                <Input name="email" placeholder="gersonrocha9@gmail.com" label="E-mail" {...register("email")} />
+                <Input name="login" placeholder="gersonrocha9" label="Login" {...register("login")} />
+                <Input name="password" placeholder="********" label="Senha" type="password" {...register("password")} />
               </SimpleGrid>
             </VStack>
 
@@ -105,7 +103,7 @@ export default function CreateUser() {
                   isLoading={formState.isSubmitting}
                   type="submit"
                 >
-                  Salvar
+                  Editar
                 </Button>
               </HStack>
             </Flex>
