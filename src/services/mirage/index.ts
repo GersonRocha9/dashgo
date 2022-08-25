@@ -51,6 +51,7 @@ export function makeServer() {
       });
 
       this.post("/users");
+      this.get("/users/:id");
 
       // reseta o namespace para o padrão do NextJS
       this.namespace = "";
