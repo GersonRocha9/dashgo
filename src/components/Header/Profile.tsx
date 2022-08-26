@@ -11,6 +11,12 @@ interface ProfileProps {
 
 export function Profile({ showProfileData = true }: ProfileProps) {
   const { isAuthenticated } = useContext(AuthContext);
+  // const router = useRouter();
+
+  const handleSignOut = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/";
+  };
 
   return (
     <Flex align="center">
@@ -24,7 +30,12 @@ export function Profile({ showProfileData = true }: ProfileProps) {
             </Text>
           </Box>
 
-          <Avatar size="md" name="Gerson Rocha" src="https://github.com/GersonRocha9.png" />
+          <Avatar size="md" mr={4} name="Gerson Rocha" src="https://github.com/GersonRocha9.png" />
+
+          <Button colorScheme="red" variant="ghost" size="md" onClick={handleSignOut}>
+            <Icon as={RiLoginCircleLine} mr={2} />
+            Sair
+          </Button>
         </>
       )}
 
