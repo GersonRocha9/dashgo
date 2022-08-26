@@ -6,7 +6,7 @@ export default function ToUserList() {
 
   useEffect(() => {
     route.push("/users");
-  }, []);
+  }, [route]);
 
   return null;
 }
