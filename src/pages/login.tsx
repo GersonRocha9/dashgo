@@ -7,13 +7,13 @@ import * as yup from "yup";
 import { Input } from "../components/Form/Input";
 
 interface signInFormData {
-  email: string;
+  login: string;
   password: string;
 }
 
 const schema = yup.object().shape({
-  email: yup.string().email("E-mail inválido").required("E-mail é obrigatório"),
-  password: yup.string().required("Senha é obrigatória"),
+  login: yup.string().required(),
+  password: yup.string().required(),
 });
 
 export default function SignIn() {
@@ -23,7 +23,6 @@ export default function SignIn() {
 
   const handleSignIn: SubmitHandler<signInFormData> = async (data) => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
-    console.log(data);
     reset();
   };
 
@@ -49,7 +48,7 @@ export default function SignIn() {
           </Text>
 
           <Stack spacing={4}>
-            <Input name="email" label="E-mail" type="email" placeholder="E-mail" {...register("email")} />
+            <Input name="login" label="Login" type="login" placeholder="Login" {...register("login")} />
             <Input name="password" label="Password" type="password" placeholder="Senha" {...register("password")} />
           </Stack>
 
