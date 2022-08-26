@@ -1,19 +1,4 @@
-import {
-  Box,
-  Button,
-  Flex,
-  Heading,
-  Icon,
-  Spinner,
-  Table,
-  Tbody,
-  Td,
-  Text,
-  Th,
-  Thead,
-  Tr,
-  useBreakpointValue,
-} from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Icon, Spinner, Table, Tbody, Td, Text, Th, Thead, Tr } from "@chakra-ui/react";
 import Head from "next/head";
 import { useState } from "react";
 import { RiRefreshLine } from "react-icons/ri";
@@ -26,11 +11,6 @@ import { useUsers } from "../../hooks/useUsers";
 export default function UserList() {
   const [page, setPage] = useState(1);
   const { data, isLoading, isFetching, isError, refetch } = useUsers(page);
-
-  const isWideVersion = useBreakpointValue({
-    base: false,
-    lg: true,
-  });
 
   return (
     <>
