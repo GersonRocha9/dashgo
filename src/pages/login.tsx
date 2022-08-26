@@ -1,28 +1,33 @@
 import { Button, Flex, Stack, Text } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Head from "next/head";
+import { useContext } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import * as yup from "yup";
 
 import { Input } from "../components/Form/Input";
+import { AuthContext } from "../contexts/AuthContext";
 
 interface signInFormData {
   login: string;
-  password: string;
+  senha: string;
 }
 
 const schema = yup.object().shape({
   login: yup.string().required(),
-  password: yup.string().required(),
+  senha: yup.string().required(),
 });
 
 export default function SignIn() {
+  const { isAuthenticated, signIn } = useContext(AuthContext);
+
   const { register, handleSubmit, reset, formState } = useForm({
     resolver: yupResolver(schema),
   });
 
   const handleSignIn: SubmitHandler<signInFormData> = async (data) => {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await signIn(data);
     reset();
   };
 
@@ -49,7 +54,7 @@ export default function SignIn() {
 
           <Stack spacing={4}>
             <Input name="login" label="Login" type="login" placeholder="Login" {...register("login")} />
-            <Input name="password" label="Password" type="password" placeholder="Senha" {...register("password")} />
+            <Input name="senha" label="Senha" type="password" placeholder="Senha" {...register("senha")} />
           </Stack>
 
           <Button type="submit" mt={4} colorScheme="pink" size="lg" isLoading={formState.isSubmitting}>

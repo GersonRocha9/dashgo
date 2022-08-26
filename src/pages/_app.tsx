@@ -3,24 +3,27 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { AppProps } from "next/app";
 
+import { AuthProvider } from "../contexts/AuthContext";
 import { SidebarDrawerProvider } from "../contexts/SidebarDrawerContext";
-import { makeServer } from "../services/mirage";
 import { queryClient } from "../services/queryClient";
 import { theme } from "../styles/theme";
 
-if (process.env.NODE_ENV === "development") {
-  makeServer();
-}
+// import { makeServer } from "../services/mirage";
+// if (process.env.NODE_ENV === "development") {
+//   makeServer();
+// }
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider resetCSS theme={theme}>
-      <QueryClientProvider client={queryClient}>
-        <SidebarDrawerProvider>
-          <Component {...pageProps} />
-          <ReactQueryDevtools />
-        </SidebarDrawerProvider>
-      </QueryClientProvider>
+      <AuthProvider>
+        <QueryClientProvider client={queryClient}>
+          <SidebarDrawerProvider>
+            <Component {...pageProps} />
+            <ReactQueryDevtools />
+          </SidebarDrawerProvider>
+        </QueryClientProvider>
+      </AuthProvider>
     </ChakraProvider>
   );
 }

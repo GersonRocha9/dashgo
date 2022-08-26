@@ -1,15 +1,18 @@
 import { Stack } from "@chakra-ui/react";
+import { useContext } from "react";
 import { RiBuildingLine, RiContactsLine, RiEditLine } from "react-icons/ri";
 
+import { AuthContext } from "../../contexts/AuthContext";
 import { NavLink } from "./NavLink";
 import { NavSection } from "./NavSection";
 
 export function SidebarNav() {
-  const isLoggedIn = false;
+  const { isAuthenticated } = useContext(AuthContext);
+
   return (
     <Stack spacing={12} align="flex-start">
       <NavSection title="MENU">
-        {isLoggedIn && (
+        {isAuthenticated && (
           <NavLink icon={RiEditLine} href="/users/edit">
             Editar meus dados
           </NavLink>

@@ -1,17 +1,20 @@
 import { Avatar, Box, Button, Flex, Icon, Text } from "@chakra-ui/react";
 import NextLink from "next/link";
+import { useContext } from "react";
 import { RiAddLine, RiLoginCircleLine } from "react-icons/ri";
+
+import { AuthContext } from "../../contexts/AuthContext";
 
 interface ProfileProps {
   showProfileData: boolean;
 }
 
 export function Profile({ showProfileData = true }: ProfileProps) {
-  const isLoggedIn = false;
+  const { isAuthenticated } = useContext(AuthContext);
 
   return (
     <Flex align="center">
-      {isLoggedIn && (
+      {isAuthenticated && (
         <>
           <Box mr={4} textAlign="right">
             <Text>Gerson Rocha</Text>
@@ -25,7 +28,7 @@ export function Profile({ showProfileData = true }: ProfileProps) {
         </>
       )}
 
-      {!isLoggedIn && (
+      {!isAuthenticated && (
         <Flex>
           <NextLink href="/login" passHref>
             <Button
