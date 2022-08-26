@@ -5,7 +5,7 @@ import { RiMentalHealthLine } from "react-icons/ri";
 export function Logo() {
   return (
     <NextLink href="/" passHref>
-      <Box as="a" display="flex" alignItems="center" justifyContent="center" href="/" cursor="pointer">
+      <Box display="flex" alignItems="center" justifyContent="center" cursor="pointer">
         <Icon as={RiMentalHealthLine} color="pink.500" mr={1} fontSize={30} />
         <Text fontSize={["2xl", "3xl"]} fontWeight="bold" letterSpacing="tight" w={64}>
           find.
