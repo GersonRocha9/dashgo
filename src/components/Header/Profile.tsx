@@ -11,7 +11,6 @@ interface ProfileProps {
 
 export function Profile({ showProfileData = true }: ProfileProps) {
   const { isAuthenticated } = useContext(AuthContext);
-  // const router = useRouter();
 
   const handleSignOut = () => {
     localStorage.removeItem("token");
