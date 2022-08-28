@@ -34,6 +34,7 @@ Esse projeto é fruto da elaboração do Trabalho de Conclusão de Curso (TCC) d
  - [x] Responsividade com menu lateral em formato de ícone hamburguer em dispositivos mobile
  - [x] Opção de atualizar dados em tempo real
  - [ ] Opção de cadastrar um novo profissional da saúde
+ - [ ] Opção de editar os dados do profissional logado através de um Modal
  - [ ] Opção de fazer buscas dentro da plataforma por profissional ou clínicas
  - [ ] Dashboard com visualizalização de todos os profissionais de saúde e clínicas cadastradas (dependendo da API)
 

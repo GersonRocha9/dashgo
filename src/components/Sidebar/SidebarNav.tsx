@@ -31,7 +31,7 @@ export function SidebarNav() {
       <Stack spacing={12} align="flex-start">
         <NavSection title="MENU">
           {isAuthenticated && (
-            <Button colorScheme="pink" onClick={onOpen}>
+            <Button colorScheme="purple" onClick={onOpen}>
               Editar meus dados
             </Button>
           )}

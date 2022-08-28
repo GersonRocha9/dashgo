@@ -43,19 +43,17 @@ export function Profile({ showProfileData = true }: ProfileProps) {
           <NextLink href="/login" passHref>
             <Button
               as="a"
-              colorScheme="pink"
+              colorScheme="purple"
               cursor="pointer"
               mr={4}
               leftIcon={<Icon as={RiLoginCircleLine} fontSize={20} />}
             >
-              {/* {showProfileData ? "Entrar" : ""} */}
               Entrar
             </Button>
           </NextLink>
 
           <NextLink href="/users/create" passHref>
             <Button as="a" colorScheme="green" cursor="pointer" mr={4} leftIcon={<Icon as={RiAddLine} fontSize={20} />}>
-              {/* {showProfileData ? "Cadastrar" : ""} */}
               Cadastrar
             </Button>
           </NextLink>
