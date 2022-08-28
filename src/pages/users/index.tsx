@@ -20,7 +20,7 @@ export default function UserList() {
 
       <Box>
         <Header />
-        <Flex w="100%" my={6} maxW={1480} mx="auto" px={[4, 4, 6]}>
+        <Flex w="100%" my={6} maxW={1480} mx="auto" px={6}>
           <Sidebar />
 
           <Box flex={1} borderRadius={8} bg="gray.800" p={8}>

@@ -29,7 +29,7 @@ export function Header() {
 
       <Logo />
 
-      <SearchBox />
+      <SearchBox showProfileData={isWideVersion} />
 
       <Flex align="center" ml="auto">
         <Profile showProfileData={isWideVersion} />
