@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
-import { createContext, ReactNode, useState } from "react";
+import { setCookie } from "nookies";
+import { createContext, ReactNode, useEffect, useState } from "react";
 
 import { api } from "../services/api";
 
@@ -28,7 +29,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User>(null);
   const router = useRouter();
 
-  // se tem usuário, então está autenticado...
+  // se tem usuário, então está autenticado
   const isAuthenticated = !!user;
 
   async function signIn({ login, senha }: SignInCredentials) {
@@ -38,13 +39,18 @@ export function AuthProvider({ children }: AuthProviderProps) {
         senha,
       });
 
+      // salvando token nos cookies do navegador usando a lib "nookies"
       const { token } = response.data;
-
-      localStorage.setItem("token", token);
+      setCookie(undefined, "findhealth.token", token, {
+        maxAge: 30 * 24 * 60 * 60, // 30 dias
+        path: "/", // para toda a aplicação
+      });
 
       setUser({
         login,
       });
+
+      api.defaults.headers["Authorization"] = `Bearer ${token}`;
 
       router.push("/");
     } catch (error) {

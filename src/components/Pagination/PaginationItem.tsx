@@ -13,7 +13,7 @@ export function PaginationItem({ number, onPageChange, isCurrent = false }: Pagi
         size="sm"
         fontSize="xs"
         w={4}
-        colorScheme="pink"
+        colorScheme="green"
         disabled
         _disabled={{
           bgColor: "pink.500",

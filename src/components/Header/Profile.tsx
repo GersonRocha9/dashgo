@@ -10,7 +10,7 @@ interface ProfileProps {
 }
 
 export function Profile({ showProfileData = true }: ProfileProps) {
-  const { isAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated, user } = useContext(AuthContext);
 
   const handleSignOut = () => {
     localStorage.removeItem("token");
@@ -22,7 +22,7 @@ export function Profile({ showProfileData = true }: ProfileProps) {
       {isAuthenticated && (
         <>
           <Box mr={4} textAlign="right">
-            <Text>Gerson Rocha</Text>
+            <Text>{user.login}</Text>
 
             <Text fontSize="small" color="gray.300">
               gersonrocha9@gmail.com
@@ -43,7 +43,7 @@ export function Profile({ showProfileData = true }: ProfileProps) {
           <NextLink href="/login" passHref>
             <Button
               as="a"
-              colorScheme="blue"
+              colorScheme="pink"
               cursor="pointer"
               mr={4}
               leftIcon={<Icon as={RiLoginCircleLine} fontSize={20} />}
@@ -53,7 +53,7 @@ export function Profile({ showProfileData = true }: ProfileProps) {
           </NextLink>
 
           <NextLink href="/users/create" passHref>
-            <Button as="a" colorScheme="pink" cursor="pointer" leftIcon={<Icon as={RiAddLine} fontSize={20} />}>
+            <Button as="a" colorScheme="green" cursor="pointer" leftIcon={<Icon as={RiAddLine} fontSize={20} />}>
               {showProfileData ? "Cadastrar" : ""}
             </Button>
           </NextLink>

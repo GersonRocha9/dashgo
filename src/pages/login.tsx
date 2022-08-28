@@ -1,6 +1,7 @@
 import { Button, Flex, Stack, Text } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Head from "next/head";
+import Link from "next/link";
 import { useContext } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -57,9 +58,15 @@ export default function SignIn() {
             <Input name="senha" label="Senha" type="password" placeholder="Senha" {...register("senha")} />
           </Stack>
 
-          <Button type="submit" mt={4} colorScheme="pink" size="lg" isLoading={formState.isSubmitting}>
+          <Button type="submit" mt={4} colorScheme="green" size="lg" isLoading={formState.isSubmitting}>
             Entrar
           </Button>
+
+          <Stack mt={4}>
+            <Text fontSize="sm" color="gray.500" textAlign="center" mt={4}>
+              Não tem conta? <Link href="/users/create">Cadastre-se</Link>
+            </Text>
+          </Stack>
         </Flex>
       </Flex>
     </>

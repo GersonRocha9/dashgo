@@ -53,7 +53,7 @@ export default function UserList() {
               <Box>
                 <Button
                   as="a"
-                  colorScheme="blue"
+                  colorScheme="green"
                   size="sm"
                   fontSize="sm"
                   mr={4}

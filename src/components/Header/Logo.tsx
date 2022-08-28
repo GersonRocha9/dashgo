@@ -6,10 +6,10 @@ export function Logo() {
   return (
     <NextLink href="/" passHref>
       <Box display="flex" alignItems="center" justifyContent="center" cursor="pointer">
-        <Icon as={RiMentalHealthLine} color="pink.500" mr={1} fontSize={30} />
+        <Icon as={RiMentalHealthLine} color="green.500" mr={1} fontSize={30} />
         <Text fontSize={["2xl", "3xl"]} fontWeight="bold" letterSpacing="tight" w={64}>
           find.
-          <Text as="span" color="pink.500">
+          <Text as="span" color="green.500">
             health.
           </Text>
         </Text>

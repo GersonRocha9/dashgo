@@ -93,12 +93,12 @@ export default function CreateUser() {
             <Flex mt={8} justify={["center", "flex-end"]} align="center">
               <HStack spacing={4}>
                 <Link href="/users" passHref>
-                  <Button colorScheme="whiteAlpha" leftIcon={<Icon as={RiDeleteBack2Line} fontSize={20} />}>
+                  <Button colorScheme="red" leftIcon={<Icon as={RiDeleteBack2Line} fontSize={20} />}>
                     Cancelar
                   </Button>
                 </Link>
                 <Button
-                  colorScheme="pink"
+                  colorScheme="green"
                   leftIcon={<Icon as={RiSaveLine} fontSize={20} />}
                   isLoading={formState.isSubmitting}
                   type="submit"

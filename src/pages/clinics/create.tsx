@@ -98,7 +98,7 @@ export default function CreateUser() {
                   </Button>
                 </Link>
                 <Button
-                  colorScheme="pink"
+                  colorScheme="green"
                   leftIcon={<Icon as={RiSaveLine} fontSize={20} />}
                   isLoading={formState.isSubmitting}
                   type="submit"
