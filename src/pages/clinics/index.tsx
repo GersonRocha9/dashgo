@@ -91,7 +91,7 @@ export default function UserList() {
                         <Tr key={user.id}>
                           <Td>
                             <Box>
-                              <Text fontWeight="bold">{user.name}</Text>
+                              <Text fontWeight="bold">{user.nome}</Text>
 
                               <Text fontSize="sm" color="gray.300">
                                 {user.email}
@@ -108,7 +108,7 @@ export default function UserList() {
                           </Td>
 
                           <Td>
-                            <Text fontSize="sm">{user.phone}</Text>
+                            <Text fontSize="sm">{user.telefone}</Text>
                           </Td>
                         </Tr>
                       );
