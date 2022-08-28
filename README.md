@@ -1,7 +1,8 @@
-## Frontend NextJS
+# Find.Health
 
-O projeto consiste em dashboard para o controle interno.
+O projeto consiste em uma plataforma de visualização de profissionais da saúde e clínicas médicas. O objetivo do projeto é ajudar pessoas que são consultadas por algum médico e depois de muito tempo tentam encontrar o mesmo médico para uma nova consulta, entretanto não possuem mais os dados daquele referido médico.
 
+Esse projeto é fruto da elaboração do Trabalho de Conclusão de Curso (TCC) do Curso Bacharelado em Sistemas de Informação do Instituto Federal Fluminense (Instituto Federal de Educação, Ciência e Tecnologia Fluminense - IFF - Campus Centro).
 
 ## Como Iniciar?
 
@@ -27,7 +28,17 @@ O projeto consiste em dashboard para o controle interno.
 
     O projeto vai executar no seguinte endereço: `http://localhost:3000`
 
-## Techs
+## Funcionalidades
+ - [x] Opção de fazer login, caso deseje alterar algum dado
+ - [x] Opção de fazer logout
+ - [x] Responsividade com menu lateral em formato de ícone hamburguer em dispositivos mobile
+ - [x] Opção de atualizar dados em tempo real
+ - [ ] Opção de cadastrar um novo profissional da saúde
+ - [ ] Opção de fazer buscas dentro da plataforma por profissional ou clínicas
+ - [ ] Dashboard com visualizalização de todos os profissionais de saúde e clínicas cadastradas (dependendo da API)
+
+
+## Tecnologias utilizadas no projeto
 
  - [x] [React](https://pt-br.reactjs.org/)
  - [x] [Typescript](https://pt-br.reactjs.org/)
