@@ -73,7 +73,7 @@ export default function CreateUser() {
 
           <Box as="form" flex={1} borderRadius={8} bg="gray.800" p={[6, 8]} onSubmit={handleSubmit(handleCreateUser)}>
             <Heading size="md" fontWeight="normal">
-              Se cadastre em nossa plataforme e fique visível para todos!
+              Cadastre sua clínica aqui!
             </Heading>
 
             <Divider my={6} borderColor="gray.700" />
