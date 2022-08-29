@@ -43,7 +43,7 @@ export function Profile({ showProfileData = true }: ProfileProps) {
           <NextLink href="/login" passHref>
             <Button
               as="a"
-              colorScheme="purple"
+              colorScheme="orange"
               cursor="pointer"
               mr={4}
               leftIcon={<Icon as={RiLoginCircleLine} fontSize={20} />}
