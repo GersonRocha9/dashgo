@@ -4,29 +4,11 @@ O projeto consiste em uma plataforma de visualização de profissionais da saúd
 
 Esse projeto é fruto da elaboração do Trabalho de Conclusão de Curso (TCC) do Curso Bacharelado em Sistemas de Informação do Instituto Federal Fluminense (Instituto Federal de Educação, Ciência e Tecnologia Fluminense - IFF - Campus Centro).
 
-## Como Iniciar?
+## Como visualizar o projeto?
 
-1.  **Faça o clone do repositório.**
+1.  **Verificando no navegador**
 
-    ```
-      git clone https://github.com/GersonRocha9/dashgo.git
-    ```
-
-2.  **Instalação das dependências**
-
-   execute na pasta do projeto o seguinte comando:
-
-    ```npm install ou yarn
-    ```
-
-    após a instalação execute o seguinte comando.
-
-    ```npm run dev ou yarn dev
-    ```
-
-3.  **Verificando no navegador**
-
-    O projeto vai executar no seguinte endereço: `http://localhost:3000`
+    O projeto está disponível no seguinte endereço: `findhealth.vercel.app`
 
 ## Funcionalidades
  - [x] Opção de fazer login, caso deseje alterar algum dado
