@@ -1,4 +1,5 @@
 import { Box, Button, Flex, Heading, Icon, Spinner, Table, Tbody, Td, Text, Th, Thead, Tr } from "@chakra-ui/react";
+import { useQuery } from "@tanstack/react-query";
 import Head from "next/head";
 import { useState } from "react";
 import { RiRefreshLine } from "react-icons/ri";
@@ -6,11 +7,13 @@ import { RiRefreshLine } from "react-icons/ri";
 import { Header } from "../../components/Header";
 import { Pagination } from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
-import { useUsers } from "../../hooks/useUsers";
+import { api } from "../../services/api";
 
 export default function UserList() {
   const [page, setPage] = useState(1);
-  const { data, isLoading, isFetching, isError, refetch } = useUsers(page);
+  const { data, isLoading, isFetching, isError, refetch } = useQuery(["users"], () =>
+    api.get("/profissional-busca/", { params: { page } })
+  );
 
   return (
     <>
@@ -66,7 +69,7 @@ export default function UserList() {
                     </Tr>
                   </Thead>
                   <Tbody>
-                    {data.users.map((user) => {
+                    {data.data.map((user) => {
                       return (
                         <Tr key={user.id}>
                           <Td>
@@ -96,7 +99,7 @@ export default function UserList() {
                   </Tbody>
                 </Table>
 
-                <Pagination totalCountOfRegisters={data.totalCount} currentPage={page} onPageChange={setPage} />
+                <Pagination totalCountOfRegisters={10} currentPage={page} onPageChange={setPage} />
               </>
             )}
           </Box>

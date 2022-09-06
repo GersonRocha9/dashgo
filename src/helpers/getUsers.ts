@@ -15,7 +15,7 @@ type GetUsersResponse = {
 };
 
 export async function getUsers(page: number): Promise<GetUsersResponse> {
-  const { data, headers } = await api.get("/profissional/2", {
+  const { data, headers } = await api.get("/profissional-busca/", {
     params: { page },
   });
 

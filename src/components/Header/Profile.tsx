@@ -22,14 +22,14 @@ export function Profile({ showProfileData = true }: ProfileProps) {
       {isAuthenticated && (
         <>
           <Box mr={4} textAlign="right">
-            <Text>{user.login}</Text>
+            <Text>{user.nome}</Text>
 
             <Text fontSize="small" color="gray.300">
-              gersonrocha9@gmail.com
+              {user.email}
             </Text>
           </Box>
 
-          <Avatar size="md" mr={4} name="Gerson Rocha" src="https://github.com/GersonRocha9.png" />
+          <Avatar size="md" mr={4} name={user.nome} />
 
           <Button colorScheme="red" variant="ghost" size="md" onClick={handleSignOut}>
             <Icon as={RiLoginCircleLine} mr={2} />

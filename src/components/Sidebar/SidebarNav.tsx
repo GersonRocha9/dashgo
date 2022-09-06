@@ -13,18 +13,24 @@ import {
   Stack,
   useDisclosure,
 } from "@chakra-ui/react";
+import { useQuery } from "@tanstack/react-query";
 import { useContext, useRef } from "react";
 import { RiBuildingLine, RiContactsLine } from "react-icons/ri";
 
 import { AuthContext } from "../../contexts/AuthContext";
+import { api } from "../../services/api";
 import { NavLink } from "./NavLink";
 import { NavSection } from "./NavSection";
 
 export function SidebarNav() {
-  const { isAuthenticated, user } = useContext(AuthContext);
+  const { isAuthenticated } = useContext(AuthContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = useRef(null);
   const finalRef = useRef(null);
+
+  const { data } = useQuery(["userInfo"], () => {
+    return api.get("/profissional/1").then((response) => response.data);
+  });
 
   return (
     <>
@@ -52,44 +58,37 @@ export function SidebarNav() {
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
-              <FormLabel>First name</FormLabel>
-              <Input ref={initialRef} placeholder="First name" />
-              {/* value={user.login} */}
+              <FormLabel>Nome completo</FormLabel>
+              <Input ref={initialRef} placeholder="Nome completo" value={data?.nome} />
             </FormControl>
 
             <FormControl mt={4}>
-              <FormLabel>Last name</FormLabel>
-              <Input placeholder="Last name" />
+              <FormLabel>E-mail</FormLabel>
+              <Input ref={initialRef} placeholder="Nome completo" value={data?.email} />
             </FormControl>
 
             <FormControl mt={4}>
-              <FormLabel>Last name</FormLabel>
-              <Input placeholder="Last name" />
+              <FormLabel>CPF</FormLabel>
+              <Input ref={initialRef} placeholder="CPF" value={data?.cpf} />
             </FormControl>
 
             <FormControl mt={4}>
-              <FormLabel>Last name</FormLabel>
-              <Input placeholder="Last name" />
+              <FormLabel>CRM</FormLabel>
+              <Input ref={initialRef} placeholder="CRM" value={data?.crm} />
             </FormControl>
 
             <FormControl mt={4}>
-              <FormLabel>Last name</FormLabel>
-              <Input placeholder="Last name" />
-            </FormControl>
-
-            <FormControl mt={4}>
-              <FormLabel>Last name</FormLabel>
-              <Input placeholder="Last name" />
+              <FormLabel>Telefone</FormLabel>
+              <Input ref={initialRef} placeholder="Telefone" value={data?.telefone} />
             </FormControl>
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="green" mr={3}>
-              Salvar
-            </Button>
-            <Button colorScheme="red" onClick={onClose}>
+            <Button colorScheme="red" onClick={onClose} mr={3}>
               Cancelar
             </Button>
+
+            <Button colorScheme="green">Salvar</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
