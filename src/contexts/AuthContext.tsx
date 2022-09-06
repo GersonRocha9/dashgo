@@ -8,6 +8,7 @@ interface User {
   login: string;
   nome: string;
   email: string;
+  idUsuario: number;
 }
 
 interface SignInCredentials {
@@ -42,7 +43,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       });
 
       // salvando token nos cookies do navegador usando a lib "nookies"
-      const { token, nome, email } = response.data;
+      const { token, nome, email, idUsuario } = response.data;
 
       setCookie(undefined, "findhealth.token", token, {
         maxAge: 30 * 24 * 60 * 60, // 30 dias
@@ -53,6 +54,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         login,
         nome,
         email,
+        idUsuario,
       });
 
       api.defaults.headers["Authorization"] = `Bearer ${token}`;

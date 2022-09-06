@@ -14,7 +14,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
-import { useContext, useRef } from "react";
+import { useContext } from "react";
 import { RiBuildingLine, RiContactsLine } from "react-icons/ri";
 
 import { AuthContext } from "../../contexts/AuthContext";
@@ -23,13 +23,13 @@ import { NavLink } from "./NavLink";
 import { NavSection } from "./NavSection";
 
 export function SidebarNav() {
-  const { isAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated, user } = useContext(AuthContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const initialRef = useRef(null);
-  const finalRef = useRef(null);
+
+  const id = user?.idUsuario;
 
   const { data } = useQuery(["userInfo"], () => {
-    return api.get("/profissional/1").then((response) => response.data);
+    return api.get(`/profissional/${id}`).then((response) => response.data);
   });
 
   return (
@@ -51,7 +51,7 @@ export function SidebarNav() {
         </NavSection>
       </Stack>
 
-      <Modal initialFocusRef={initialRef} finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent backgroundColor="gray.900" borderRadius="lg" w="100%" maxW={800}>
           <ModalHeader>Edite seus dados</ModalHeader>
@@ -59,27 +59,32 @@ export function SidebarNav() {
           <ModalBody pb={6}>
             <FormControl>
               <FormLabel>Nome completo</FormLabel>
-              <Input ref={initialRef} placeholder="Nome completo" value={data?.nome} />
+              <Input placeholder="Nome completo" value={data?.nome} />
             </FormControl>
 
             <FormControl mt={4}>
               <FormLabel>E-mail</FormLabel>
-              <Input ref={initialRef} placeholder="Nome completo" value={data?.email} />
+              <Input placeholder="Nome completo" value={data?.email} />
+            </FormControl>
+
+            <FormControl mt={4}>
+              <FormLabel>Login</FormLabel>
+              <Input placeholder="Login" value={user?.login} />
             </FormControl>
 
             <FormControl mt={4}>
               <FormLabel>CPF</FormLabel>
-              <Input ref={initialRef} placeholder="CPF" value={data?.cpf} />
+              <Input placeholder="CPF" value={data?.cpf} disabled />
             </FormControl>
 
             <FormControl mt={4}>
               <FormLabel>CRM</FormLabel>
-              <Input ref={initialRef} placeholder="CRM" value={data?.crm} />
+              <Input placeholder="CRM" value={data?.crm} disabled />
             </FormControl>
 
             <FormControl mt={4}>
               <FormLabel>Telefone</FormLabel>
-              <Input ref={initialRef} placeholder="Telefone" value={data?.telefone} />
+              <Input placeholder="Telefone" value={data?.telefone} />
             </FormControl>
           </ModalBody>
 
