@@ -1,13 +1,10 @@
-import { Avatar, Box, Button, Flex, Icon, Text } from "@chakra-ui/react";
-import NextLink from "next/link";
-import { useContext } from "react";
-import { RiAddLine, RiLoginCircleLine } from "react-icons/ri";
+import { Avatar, Box, Button, Flex, Icon, Text } from '@chakra-ui/react';
+import NextLink from 'next/link';
+import { useContext } from 'react';
+import { RiAddLine, RiLoginCircleLine } from 'react-icons/ri';
 
-import { AuthContext } from "../../contexts/AuthContext";
-
-interface ProfileProps {
-  showProfileData: boolean;
-}
+import { AuthContext } from '../../contexts/AuthContext';
+import { ProfileProps } from '../../types/types';
 
 export function Profile({ showProfileData = true }: ProfileProps) {
   const { isAuthenticated, user } = useContext(AuthContext);

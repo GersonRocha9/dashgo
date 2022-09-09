@@ -12,15 +12,15 @@ import {
   ModalOverlay,
   Stack,
   useDisclosure,
-} from "@chakra-ui/react";
-import { useQuery } from "@tanstack/react-query";
-import { useContext } from "react";
-import { RiBuildingLine, RiContactsLine } from "react-icons/ri";
+} from '@chakra-ui/react';
+import { useQuery } from '@tanstack/react-query';
+import { useContext } from 'react';
+import { RiBuildingLine, RiContactsLine } from 'react-icons/ri';
 
-import { AuthContext } from "../../contexts/AuthContext";
-import { api } from "../../services/api";
-import { NavLink } from "./NavLink";
-import { NavSection } from "./NavSection";
+import { AuthContext } from '../../contexts/AuthContext';
+import { api } from '../../services/api';
+import { NavLink } from './NavLink';
+import { NavSection } from './NavSection';
 
 export function SidebarNav() {
   const { isAuthenticated, user } = useContext(AuthContext);

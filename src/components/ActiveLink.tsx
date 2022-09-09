@@ -1,11 +1,8 @@
-import Link, { LinkProps } from "next/link";
-import { useRouter } from "next/router";
-import { cloneElement, ReactElement } from "react";
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { cloneElement } from 'react';
 
-interface ActiveLinkProps extends LinkProps {
-  children: ReactElement;
-  shouldMatchExactHref?: boolean;
-}
+import { ActiveLinkProps } from '../types/types';
 
 export function ActiveLink({ children, shouldMatchExactHref = false, ...rest }: ActiveLinkProps) {
   const { asPath } = useRouter();

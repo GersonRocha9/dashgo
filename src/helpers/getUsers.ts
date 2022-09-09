@@ -1,18 +1,5 @@
-import { api } from "../services/api";
-
-type User = {
-  id: string;
-  nome: string;
-  crm: string;
-  cpf: string;
-  telefone: string;
-  email: string;
-};
-
-type GetUsersResponse = {
-  totalCount: number;
-  users: User[];
-};
+import { api } from '../services/api';
+import { GetUsersResponse, UserHook } from '../types/types';
 
 export async function getUsers(page: number): Promise<GetUsersResponse> {
   const { data, headers } = await api.get("/profissional-busca/", {
@@ -21,7 +8,7 @@ export async function getUsers(page: number): Promise<GetUsersResponse> {
 
   const totalCount = Number(headers["x-total-count"]);
 
-  const users = data.users.map((user: User) => {
+  const users = data.users.map((user: UserHook) => {
     return {
       id: user.id,
       nome: user.nome,

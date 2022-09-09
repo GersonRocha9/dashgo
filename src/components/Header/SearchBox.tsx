@@ -1,10 +1,8 @@
-import { Flex, Icon, Input } from "@chakra-ui/react";
-import { useState } from "react";
-import { RiSearchLine } from "react-icons/ri";
+import { Flex, Icon, Input } from '@chakra-ui/react';
+import { useState } from 'react';
+import { RiSearchLine } from 'react-icons/ri';
 
-interface SearchBoxProps {
-  showProfileData: boolean;
-}
+import { SearchBoxProps } from '../../types/types';
 
 export function SearchBox({ showProfileData = true }: SearchBoxProps) {
   const [search, setSearch] = useState("");

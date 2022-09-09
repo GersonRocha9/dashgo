@@ -1,30 +1,9 @@
-import { useRouter } from "next/router";
-import { setCookie } from "nookies";
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { useRouter } from 'next/router';
+import { setCookie } from 'nookies';
+import { createContext, useState } from 'react';
 
-import { api } from "../services/api";
-
-interface User {
-  login: string;
-  nome: string;
-  email: string;
-  idUsuario: number;
-}
-
-interface SignInCredentials {
-  login: string;
-  senha: string;
-}
-
-interface AuthContextData {
-  signIn(credentials: SignInCredentials): Promise<void>;
-  isAuthenticated: boolean;
-  user: User;
-}
-
-interface AuthProviderProps {
-  children: ReactNode;
-}
+import { api } from '../services/api';
+import { AuthContextData, AuthProviderProps, SignInCredentials, User } from '../types/types';
 
 export const AuthContext = createContext({} as AuthContextData);
 
@@ -42,12 +21,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
         senha,
       });
 
-      // salvando token nos cookies do navegador usando a lib "nookies"
       const { token, nome, email, idUsuario } = response.data;
 
       setCookie(undefined, "findhealth.token", token, {
-        maxAge: 30 * 24 * 60 * 60, // 30 dias
-        path: "/", // para toda a aplicação
+        maxAge: 30 * 24 * 60 * 60, // 30 days
+        path: "/",
       });
 
       setUser({
@@ -61,7 +39,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
       router.push("/");
     } catch (error) {
-      alert("Erro ao fazer login");
+      console.log(error);
     }
   }
 

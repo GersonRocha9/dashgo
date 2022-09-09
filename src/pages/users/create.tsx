@@ -1,29 +1,19 @@
-import { Box, Button, Divider, Flex, Heading, HStack, Icon, SimpleGrid, VStack } from "@chakra-ui/react";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useMutation } from "@tanstack/react-query";
-import Head from "next/head";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { RiDeleteBack2Line, RiSaveLine } from "react-icons/ri";
-import * as yup from "yup";
+import { Box, Button, Divider, Flex, Heading, HStack, Icon, SimpleGrid, VStack } from '@chakra-ui/react';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useMutation } from '@tanstack/react-query';
+import Head from 'next/head';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { RiDeleteBack2Line, RiSaveLine } from 'react-icons/ri';
+import * as yup from 'yup';
 
-import { Input } from "../../components/Form/Input";
-import { Header } from "../../components/Header";
-import { Sidebar } from "../../components/Sidebar";
-import { api } from "../../services/api";
-import { queryClient } from "../../services/queryClient";
-
-interface CreateUserFormData {
-  nome: string;
-  cpf: string;
-  crm: string;
-  email: string;
-  login: string;
-  status: string;
-  senha: string;
-  telefone: string;
-}
+import { Input } from '../../components/Form/Input';
+import { Header } from '../../components/Header';
+import { Sidebar } from '../../components/Sidebar';
+import { api } from '../../services/api';
+import { queryClient } from '../../services/queryClient';
+import { CreateUserFormData } from '../../types/types';
 
 const schema = yup.object().shape({
   nome: yup.string().required(),

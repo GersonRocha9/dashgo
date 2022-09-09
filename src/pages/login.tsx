@@ -1,18 +1,14 @@
-import { Button, Flex, Stack, Text } from "@chakra-ui/react";
-import { yupResolver } from "@hookform/resolvers/yup";
-import Head from "next/head";
-import Link from "next/link";
-import { useContext } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-import * as yup from "yup";
+import { Button, Flex, Stack, Text } from '@chakra-ui/react';
+import { yupResolver } from '@hookform/resolvers/yup';
+import Head from 'next/head';
+import Link from 'next/link';
+import { useContext } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import * as yup from 'yup';
 
-import { Input } from "../components/Form/Input";
-import { AuthContext } from "../contexts/AuthContext";
-
-interface signInFormData {
-  login: string;
-  senha: string;
-}
+import { Input } from '../components/Form/Input';
+import { AuthContext } from '../contexts/AuthContext';
+import { signInFormData } from '../types/types';
 
 const schema = yup.object().shape({
   login: yup.string().required(),
