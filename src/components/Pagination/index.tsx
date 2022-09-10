@@ -1,6 +1,6 @@
 import { Box, HStack, Stack, Text } from '@chakra-ui/react';
 
-import { PaginationProps } from '../../types/types';
+import { PaginationProps } from '../../@types/types';
 import { PaginationItem } from './PaginationItem';
 
 export function Pagination({

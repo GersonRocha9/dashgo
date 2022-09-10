@@ -8,12 +8,12 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { RiDeleteBack2Line, RiSaveLine } from 'react-icons/ri';
 import * as yup from 'yup';
 
+import { CreateUserFormData } from '../../@types/types';
 import { Input } from '../../components/Form/Input';
 import { Header } from '../../components/Header';
 import { Sidebar } from '../../components/Sidebar';
 import { api } from '../../services/api';
 import { queryClient } from '../../services/queryClient';
-import { CreateUserFormData } from '../../types/types';
 
 const schema = yup.object().shape({
   nome: yup.string().required(),

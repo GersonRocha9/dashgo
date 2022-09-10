@@ -2,7 +2,7 @@ import { useDisclosure, UseDisclosureReturn } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { createContext, useContext, useEffect } from 'react';
 
-import { SidebarDrawerProviderProps } from '../types/types';
+import { SidebarDrawerProviderProps } from '../@types/types';
 
 type SidebarDrawerContextData = UseDisclosureReturn;
 

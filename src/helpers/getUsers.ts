@@ -1,5 +1,5 @@
+import { GetUsersResponse, UserHook } from '../@types/types';
 import { api } from '../services/api';
-import { GetUsersResponse, UserHook } from '../types/types';
 
 export async function getUsers(page: number): Promise<GetUsersResponse> {
   const { data, headers } = await api.get("/profissional-busca/", {

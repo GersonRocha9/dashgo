@@ -3,8 +3,8 @@ import NextLink from 'next/link';
 import { useContext } from 'react';
 import { RiAddLine, RiLoginCircleLine } from 'react-icons/ri';
 
+import { ProfileProps } from '../../@types/types';
 import { AuthContext } from '../../contexts/AuthContext';
-import { ProfileProps } from '../../types/types';
 
 export function Profile({ showProfileData = true }: ProfileProps) {
   const { isAuthenticated, user } = useContext(AuthContext);

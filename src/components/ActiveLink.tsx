@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { cloneElement } from 'react';
 
-import { ActiveLinkProps } from '../types/types';
+import { ActiveLinkProps } from '../@types/types';
 
 export function ActiveLink({ children, shouldMatchExactHref = false, ...rest }: ActiveLinkProps) {
   const { asPath } = useRouter();

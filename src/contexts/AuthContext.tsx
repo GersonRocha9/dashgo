@@ -2,8 +2,8 @@ import { useRouter } from 'next/router';
 import { setCookie } from 'nookies';
 import { createContext, useState } from 'react';
 
+import { AuthContextData, AuthProviderProps, SignInCredentials, User } from '../@types/types';
 import { api } from '../services/api';
-import { AuthContextData, AuthProviderProps, SignInCredentials, User } from '../types/types';
 
 export const AuthContext = createContext({} as AuthContextData);
 

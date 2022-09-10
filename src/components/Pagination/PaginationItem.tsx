@@ -1,6 +1,6 @@
 import { Button } from '@chakra-ui/react';
 
-import { PaginationItemProps } from '../../types/types';
+import { PaginationItemProps } from '../../@types/types';
 
 export function PaginationItem({ number, onPageChange, isCurrent = false }: PaginationItemProps) {
   if (isCurrent) {
