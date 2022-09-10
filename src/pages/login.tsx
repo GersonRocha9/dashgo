@@ -6,9 +6,9 @@ import { useContext } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
+import { signInFormData } from '../@types/types';
 import { Input } from '../components/Form/Input';
 import { AuthContext } from '../contexts/AuthContext';
-import { signInFormData } from '../types/types';
 
 const schema = yup.object().shape({
   login: yup.string().required(),
